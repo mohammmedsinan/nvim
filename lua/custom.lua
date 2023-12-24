@@ -1,5 +1,5 @@
 local opts={noremap=true,silent=true}
-vim.keymap.set('n','<leader>csgurv',":colorscheme gruvbox<cr>",opts);
-vim.keymap.set('n','<leader>cstokyo',":colorscheme tokyonight-moon<cr>",opts);
-vim.keymap.set('n','<leader>csdefault',":colorscheme default<cr>",opts);
-vim.cmd("colorscheme tokyonight")
+vim.keymap.set('n','<leader>csg',":colorscheme gruvbox<cr>",opts);
+vim.keymap.set('n','<leader>cst',":colorscheme tokyonight-moon<cr>",opts);
+vim.keymap.set('n','<leader>csd',":colorscheme default<cr>",opts);
+vim.cmd("colorscheme tokyonight-moon");

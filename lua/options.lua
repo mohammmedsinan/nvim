@@ -1,5 +1,5 @@
 local opts= {noremap=true,silent=true}
-local term_opts = {silent=true}
+-- local term_opts = {silent=true}
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>fw", [[:Telescope live_grep <CR>]])
 vim.keymap.set("n", "<leader>tt", [[:NvimTreeToggle <CR>]])
 --========ReMaps===============================
 vim.keymap.set('n','<leader>e',vim.cmd.Ex);
-vim.keymap.set('n','<A-s>s',":vsplit<cr>",opts);
+vim.keymap.set('n','split',":vsplit<cr>",opts);
 --Navigation Between Windows
 vim.keymap.set('n',"<C-Left>" , "<C-w>h",opts);
 vim.keymap.set('n',"<C-Down>" , "<C-w>j",opts);
@@ -39,7 +39,7 @@ vim.keymap.set('n','<S-Up>',":resize -5<CR>",opts);
 vim.keymap.set('n','<S-Down>',":resize +5<CR>",opts);
 vim.keymap.set('n','<S-Left>',":vertical resize -5<CR>",opts);
 vim.keymap.set('n','<S-Right>',":vertical resize +5<CR>",opts);
-vim.keymap.set('i','qq',"<ESC>",opts);
+vim.keymap.set('i','<C-s>',"<ESC> :w<CR>",opts);
 --Move the Text (UP-Down)
 vim.keymap.set("x", "<A-Down>", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("x", "<A-Up>", ":m '<-2<CR>gv=gv", opts)

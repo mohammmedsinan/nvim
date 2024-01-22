@@ -1,5 +1,5 @@
 return {
-
+--[[
 	{ 'numToStr/Comment.nvim', opts = {} },
 	{
 		"numToStr/Comment.nvim",
@@ -7,11 +7,12 @@ return {
 			require("Comment").setup()
 		end
 	},
+	]]
 	{
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 	},
-	{
+{
 
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -73,6 +74,7 @@ return {
 				theme = 'onedark',
 			})
 		end,
-	}
-
+	},
+	{"sbdchd/neoformat"},
+	{"/dstein64/vim-startuptime"},
 }

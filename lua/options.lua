@@ -30,6 +30,8 @@ vim.keymap.set("n", "<leader>tt", [[:NvimTreeToggle <CR>]])
 --========ReMaps===============================
 vim.keymap.set('n','<leader>e',vim.cmd.Ex);
 vim.keymap.set('n','split',":vsplit<cr>",opts);
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
 
 --Navigation Between Windows
 vim.keymap.set('n',"<C-Left>" , "<C-w>h",opts);
@@ -50,3 +52,7 @@ vim.keymap.set("x", "<A-Down>", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("x", "<A-Up>", ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set("x", "<A-Left>", ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set("x", "<A-Right>", ":m '>+1<CR>gv=gv", opts)
+
+
+
+vim.keymap.set("n", "<C-f>", ":Neoformat prettier<CR>", opts)

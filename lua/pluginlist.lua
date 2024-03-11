@@ -57,10 +57,10 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim", },
 		config = true,
 		keys = {
-			{ "<C-x>x", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
+			{ "<C-q>q", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
 			{ "<C-s>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Go to next harpoon mark" },
 			{ "<C-a>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Go to previous harpoon mark" },
-			{ "<C-z>z", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon marks" },
+			{ "<C-w>w", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon marks" },
 		},
 	},
 	{

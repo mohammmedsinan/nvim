@@ -76,5 +76,4 @@ return {
 		end,
 	},
 	{"sbdchd/neoformat"},
-	{"/dstein64/vim-startuptime"},
 }

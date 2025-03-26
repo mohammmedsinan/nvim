@@ -9,6 +9,18 @@ return {
 	},
 	]]
 	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup({
+				keymaps = {
+					accept_suggestion = '<C-y>',   -- Optional: Accept the current suggestion
+					accept_word = '<C-n>',        -- Optional: Accept a single word
+					clear_suggestion = '<C-e>',   -- Optional: Clear the current suggestion
+				},
+			})
+		end,
+	},
+	{
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 	},

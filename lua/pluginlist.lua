@@ -1,13 +1,91 @@
 return {
---[[
-	{ 'numToStr/Comment.nvim', opts = {} },
+
+-- in your lazy.nvim plugins table
+{
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+  },
+  config = function()
+    require("neo-tree").setup({
+      close_if_last_window = true,
+      popup_border_style = "rounded",
+      enable_git_status = false,
+      enable_diagnostics = false,
+      window = {
+        position = "right",
+        width = 26,
+        mappings = {
+          ["<space>"] = "toggle_node",
+          ["<cr>"] = "open",
+          ["S"] = "open_split",
+          ["s"] = "open_vsplit",
+          ["C"] = "close_node",
+          ["R"] = "refresh",
+          ["a"] = {
+            "add",
+            config = {
+              show_path = "relative"
+            }
+          },
+          ["d"] = "delete",
+          ["r"] = "rename",
+          ["y"] = "copy_to_clipboard",
+          ["x"] = "cut_to_clipboard",
+          ["p"] = "paste_from_clipboard",
+          ["q"] = "close_window",
+        }
+      },
+      filesystem = {
+        filtered_items = {
+          visible = false,
+          hide_dotfiles = true,
+          hide_gitignored = true,
+        },
+        follow_current_file = {
+          enabled = true
+        },
+        use_libuv_file_watcher = true,
+      },
+      buffers = {
+        follow_current_file = {
+          enabled = true
+        }
+      },
+      git_status = {
+        window = {
+          position = "float",
+        }
+      }
+    })
+  end,
+  keys = {
+    { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
+  },
+},
 	{
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {},
+		dependencies = {
+			"MunifTanjim/nui.nvim"
+		}
 	},
-	]]
+	{
+		'mawkler/modicator.nvim',
+		dependencies = 'mawkler/onedark.nvim', -- Add your colorscheme plugin here
+		init = function()
+			vim.o.cursorline = true
+			vim.o.number = true
+			vim.o.termguicolors = true
+		end,
+		opts = {
+			show_warnings = true,
+		}
+	},
 	{
 		"supermaven-inc/supermaven-nvim",
 		config = function()

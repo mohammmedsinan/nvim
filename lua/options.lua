@@ -5,7 +5,6 @@ vim.g.maplocalleader = ' '
 
 vim.o.clipboard = 'unnamedplus'
 
-vim.o.number = true
 vim.o.relativenumber = true
 
 vim.o.signcolumn = 'yes'
@@ -18,6 +17,8 @@ vim.o.updatetime = 300
 vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
+vim.o.cursorline = true
+vim.o.number = true
 
 -- =========Telescope ======================
 vim.keymap.set("n", "<leader>ff", [[:Telescope find_files <CR>]])

@@ -3,12 +3,6 @@ vim.keymap.set('n','<leader>csg',":colorscheme gruvbox<cr>",opts);
 vim.keymap.set('n','<leader>cst',":colorscheme tokyonight-moon<cr>",opts);
 vim.keymap.set('n','<leader>csd',":colorscheme default<cr>",opts);
 vim.cmd(":colorscheme tokyonight-moon");
-vim.filetype.add {
-      extension = {
-        astro = "astro",
-      },
-}
-
 
 
 --vim.cmd(":set spell");

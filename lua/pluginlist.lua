@@ -1,71 +1,50 @@
 return {
 
--- in your lazy.nvim plugins table
-{
-  "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",
-    "MunifTanjim/nui.nvim",
-  },
-  config = function()
-    require("neo-tree").setup({
-      close_if_last_window = true,
-      popup_border_style = "rounded",
-      enable_git_status = false,
-      enable_diagnostics = false,
-      window = {
-        position = "right",
-        width = 26,
-        mappings = {
-          ["<space>"] = "toggle_node",
-          ["<cr>"] = "open",
-          ["S"] = "open_split",
-          ["s"] = "open_vsplit",
-          ["C"] = "close_node",
-          ["R"] = "refresh",
-          ["a"] = {
-            "add",
-            config = {
-              show_path = "relative"
-            }
-          },
-          ["d"] = "delete",
-          ["r"] = "rename",
-          ["y"] = "copy_to_clipboard",
-          ["x"] = "cut_to_clipboard",
-          ["p"] = "paste_from_clipboard",
-          ["q"] = "close_window",
-        }
-      },
-      filesystem = {
-        filtered_items = {
-          visible = false,
-          hide_dotfiles = true,
-          hide_gitignored = true,
-        },
-        follow_current_file = {
-          enabled = true
-        },
-        use_libuv_file_watcher = true,
-      },
-      buffers = {
-        follow_current_file = {
-          enabled = true
-        }
-      },
-      git_status = {
-        window = {
-          position = "float",
-        }
-      }
-    })
-  end,
-  keys = {
-    { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
-  },
-},
+	-- in your lazy.nvim plugins table
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("neo-tree").setup({
+				close_if_last_window = true,
+				popup_border_style = "rounded",
+				enable_git_status = false,
+				enable_diagnostics = false,
+				window = {
+					position = "right",
+					width = 26,
+					mappings = {
+						["<space>"] = "toggle_node",
+						["<cr>"] = "open",
+						["S"] = "open_split",
+						["s"] = "open_vsplit",
+						["C"] = "close_node",
+						["R"] = "refresh",
+						["a"] = {
+							"add",
+							config = {
+								show_path = "relative"
+							}
+						},
+						["d"] = "delete",
+						["r"] = "rename",
+						["y"] = "copy_to_clipboard",
+						["x"] = "cut_to_clipboard",
+						["p"] = "paste_from_clipboard",
+						["q"] = "close_window",
+					}
+				}
+			})
+		end,
+		keys = {
+			{ "<leader>b", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
+		},
+	},
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -102,7 +81,7 @@ return {
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 	},
-{
+	{
 
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -166,4 +145,13 @@ return {
 		end,
 	},
 	{"sbdchd/neoformat"},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		}
+	}
 }

@@ -20,6 +20,11 @@ vim.o.mouse = 'a'
 vim.o.cursorline = true
 vim.o.number = true
 
+-- ========== Diagnostic ===================
+vim.keymap.set('n', '[d', function() vim.diagnostic.goto_next() end, opts)
+vim.keymap.set('n', ']d', function() vim.diagnostic.goto_prev() end, opts)
+vim.keymap.set('n', '<C-d>', function() vim.diagnostic.open_float() end, opts)
+
 -- =========Telescope ======================
 vim.keymap.set("n", "<leader>ff", [[:Telescope find_files <CR>]])
 vim.keymap.set("n", "<leader>fg", [[:Telescope git_files <CR>]])

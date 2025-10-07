@@ -1,3 +1,19 @@
+local null_ls = require("null-ls")
+
+-- Set up null-ls with Prettier
+null_ls.setup({
+	sources = {
+		null_ls.builtins.formatting.prettier.with({
+			filetypes = {
+				"javascript", "typescript", "javascriptreact", "typescriptreact",
+				"vue", "css", "scss", "less", "html", "json", "yaml",
+				"markdown", "graphql"
+			},
+		}),
+	},
+})
+
+-- Your existing LSP setup
 local on_attach = function(_, bufnr)
 	local bufmap = function(keys, func)
 		vim.keymap.set("n", keys, func, { buffer = bufnr })
@@ -17,25 +33,14 @@ local on_attach = function(_, bufnr)
 
 	bufmap("K", vim.lsp.buf.hover)
 
-	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-		vim.lsp.buf.format()
-	end, {})
+	bufmap("<C-f>", function()
+		vim.lsp.buf.format({ async = false })
+	end)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
--- no mason
--- require('lspconfig').lua_ls.setup {
---     on_attach = on_attach,
---     capabilities = capabilities,
---     Lua = {
---       workspace = { checkThirdParty = false },
---       telemetry = { enable = false },
---     },
--- }
-
--- mason
 require("mason").setup()
 require("mason-lspconfig").setup_handlers({
 
@@ -60,16 +65,4 @@ require("mason-lspconfig").setup_handlers({
 		})
 	end,
 
-	-- another example
-	-- ["omnisharp"] = function()
-	--     require('lspconfig').omnisharp.setup {
-	--         filetypes = { "cs", "vb" },
-	--         root_dir = require('lspconfig').util.root_pattern("*.csproj", "*.sln"),
-	--         on_attach = on_attach,
-	--         capabilities = capabilities,
-	--         enable_roslyn_analyzers = true,
-	--         analyze_open_documents_only = true,
-	--         enable_import_completion = true,
-	--     }
-	-- end,
 })

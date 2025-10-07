@@ -1,6 +1,20 @@
 return {
-
-	-- in your lazy.nvim plugins table
+	{
+		"nvimtools/none-ls.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"sphamba/smear-cursor.nvim",
+		opts = {
+			stiffness = 0.8,
+			trailing_stiffness = 0.5,
+			stiffness_insert_mode = 0.7,
+			trailing_stiffness_insert_mode = 0.7,
+			damping = 0.8,
+			damping_insert_mode = 0.8,
+			distance_stop_animating = 0.5,
+		}
+	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -70,9 +84,9 @@ return {
 		config = function()
 			require("supermaven-nvim").setup({
 				keymaps = {
-					accept_suggestion = '<C-y>',   -- Optional: Accept the current suggestion
-					accept_word = '<C-n>',        -- Optional: Accept a single word
-					clear_suggestion = '<C-e>',   -- Optional: Clear the current suggestion
+					accept_suggestion = '<C-y>', -- Optional: Accept the current suggestion
+					accept_word = '<C-n>', -- Optional: Accept a single word
+					clear_suggestion = '<C-e>', -- Optional: Clear the current suggestion
 				},
 			})
 		end,
@@ -119,16 +133,16 @@ return {
 		'nvim-telescope/telescope-fzf-native.nvim',
 		build = 'make',
 	},
-	{"nvim-tree/nvim-tree.lua"},
+	{ "nvim-tree/nvim-tree.lua" },
 	{
 		"ThePrimeagen/harpoon",
 		lazy = false,
 		dependencies = { "nvim-lua/plenary.nvim", },
 		config = true,
 		keys = {
-			{ "<C-q>q", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
-			{ "<C-s>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Go to next harpoon mark" },
-			{ "<C-a>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Go to previous harpoon mark" },
+			{ "<C-q>q", "<cmd>lua require('harpoon.mark').add_file()<cr>",        desc = "Mark file with harpoon" },
+			{ "<C-s>",  "<cmd>lua require('harpoon.ui').nav_next()<cr>",          desc = "Go to next harpoon mark" },
+			{ "<C-a>",  "<cmd>lua require('harpoon.ui').nav_prev()<cr>",          desc = "Go to previous harpoon mark" },
 			{ "<C-w>w", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon marks" },
 		},
 	},
@@ -144,14 +158,10 @@ return {
 			})
 		end,
 	},
-	{"sbdchd/neoformat"},
+	{ "sbdchd/neoformat" },
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		}
+		opts = {}
 	}
 }
